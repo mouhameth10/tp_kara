@@ -22,8 +22,7 @@ app.post('/tasks', async (req, res) => {
   try {
     const task = new Task(req.body);
     await task.save();
-    res.status(201).send({ message: 'Tâche ajoutée avec succès!', task });
-  } catch (err) {
+    res.status(201).send({ success: true, task });  } catch (err) {
     res.status(400).send(err);
   }
 });
